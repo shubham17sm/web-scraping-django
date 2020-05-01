@@ -12,7 +12,7 @@ class Command(BaseCommand):
         new_project_name = kwargs['new_project_name']
 
         files_to_rename = ['myproject/settings/base.py', 'myproject/wsgi.py', 'manage.py']
-        folder_to_rename = ['src/myproject', 'myproject']
+        folder_to_rename = 'myproject'
 
         for f in files_to_rename:
             with open(f, 'r') as file:
