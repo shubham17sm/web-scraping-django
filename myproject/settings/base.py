@@ -1,8 +1,9 @@
 import os
+from decouple import config
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-SECRET_KEY = '*#gd8+5(x!quote_qt!k)evng65!6f3g@zjlx_a7uf$p3h%feb'
+SECRET_KEY = config('SECRET_KEY')
 
 
 INSTALLED_APPS = [
@@ -13,6 +14,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    #own app
+    'myapp',
 ]
 
 MIDDLEWARE = [

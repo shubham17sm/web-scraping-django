@@ -1,5 +1,6 @@
 Django==2.1.5
 django-debug-toolbar==2.2
 pkg-resources==0.0.0
+python-decouple==3.3
 pytz==2020.1
 sqlparse==0.3.1
