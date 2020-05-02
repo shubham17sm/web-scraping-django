@@ -18,5 +18,6 @@ First Create and start your virtual environment:
 Go to the web browser and visit http://127.0.0.1:8000/
 
 Admin username: admin
+
 Admin password: admin
 
