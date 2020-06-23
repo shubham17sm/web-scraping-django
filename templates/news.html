@@ -1,0 +1,64 @@
+{% load index %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>News aggregator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        .properties {
+            background-color: #e9ecef;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            margin-bottom: 25px;
+            padding: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <center>
+            <h1>News from Times of india</h1>
+            <a href="{% url 'news' %}" class="btn btn-danger">Refresh News</a>
+            </form>
+        </center>
+    </div>
+    <div class="container">
+        <div class="row">
+
+            {%for tit in rows%}
+            <div class="col-12 properties">
+                <h5> {{forloop.counter}}- {{tit|index:0}} </h5>
+                <p><b>Description:</b>{{tit|index:1}}</p>
+                <p><b>link:</b>{{tit|index:2}}</p>
+                <p><b>guid:</b>{{tit|index:3}}</p>
+                <p><b>pubdate:</b>{{tit|index:4}}</p>
+            </div>
+            {% endfor %}
+
+            <!-- <div class="col-6">
+                <h3 class="text-centre">News from Hindustan times</h3>
+                {% for htn in ht_news %}
+                <h5> - {{htn}} </h5>
+                <hr>
+                {% endfor %}
+                <br>
+            </div> -->
+        </div>
+
+
+    </div>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
