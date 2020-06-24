@@ -23,11 +23,17 @@
 
         .ul-style {
             display: flex;
-            padding-left: 0;
+            padding-left: 500px;
             list-style: none;
             border-radius: .25rem;
             font-size: 20px;
-            margin-left: 500px;
+        }
+        .btn-rounded{
+            color: black;
+            border: 2px solid;
+        }
+        .page-footer{
+            background-color: #e9ecef;
         }
     </style>
 </head>
@@ -36,6 +42,7 @@
     <div class="jumbotron">
         <center>
             <h1>News from Times of india</h1>
+            <a href="{% url 'news-api' %}" class="btn btn-success" target="_blank">Get API</a>
             <a href="{% url 'news' %}" class="btn btn-danger">Refresh News</a>
             </form>
         </center>
@@ -51,6 +58,7 @@
             </div>
             {% endfor %}
 
+            <div class="pagination-div">
             {% if news.has_other_pages %}
             <ul class="pagination ul-style">
                 {% if news.has_previous %}
@@ -72,6 +80,7 @@
                 {% endif %}
             </ul>
             {% endif %}
+        </div>
             <!-- {%for tit in rows%}
             <div class="col-12 properties">
                 <h5> {{forloop.counter}}- {{tit|index:0}} </h5>
@@ -86,6 +95,35 @@
 
 
     </div>
+    <!-- Footer -->
+<footer class="page-footer font-small unique-color-dark pt-4">
+
+    <!-- Footer Elements -->
+    <div class="container">
+  
+      <!-- Call to action -->
+      <ul class="list-unstyled list-inline text-center py-2">
+        <li class="list-inline-item">
+          <h5 class="mb-1">Click here to get API</h5>
+        </li>
+        <li class="list-inline-item">
+          <a href="{% url 'news-api' %}" class="btn btn-outline-white btn-rounded" target="_blank">API</a>
+        </li>
+      </ul>
+      <!-- Call to action -->
+  
+    </div>
+    <!-- Footer Elements -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© Times of India RSS Feeds:
+      <br><a href="#"> Made by Shubham Mahajan</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"

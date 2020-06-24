@@ -13,6 +13,7 @@ distlib==0.3.0
 distro==1.4.0
 Django==2.1.5
 django-debug-toolbar==2.2
+djangorestframework==3.11.0
 future==0.18.2
 html5lib==1.0.1
 idna==2.8

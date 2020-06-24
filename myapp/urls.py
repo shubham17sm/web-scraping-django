@@ -6,6 +6,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='news'),
+    path('news-api/', views.NewsApiView.as_view(), name='news-api'),
 ]
 
 if settings.DEBUG:

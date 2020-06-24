@@ -7,6 +7,11 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import News
 
+from .serializers import NewsSerializer
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
 
 def index(request):
     qs = News.objects.all()
@@ -25,3 +30,11 @@ def index(request):
        'news': news
     }
     return render(request, "news.html", context)
+
+
+class NewsApiView(APIView):
+
+    def get(self, request):
+        news_qs = News.objects.all()
+        serializer = NewsSerializer(news_qs, many=True)
+        return Response(serializer.data)
