@@ -12,7 +12,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 from .models import News
 
-url = "https://timesofindia.indiatimes.com/rssfeedstopstories.cms"
+url = "https://timesofindia.indiatimes.com/rssfeeds/1221656.cms"
 
 r = requests.get(url)
 htmlcontent = r.content
@@ -33,6 +33,14 @@ for row in rows:
 
 
 
+News.objects.create(
+title = title,
+description = description,
+link = link,
+pubdate = pubdate,
+news_bool = False
+)
+
 # titles = soup.find_all('title')
 # desps = soup.find_all('description')
 
@@ -46,9 +54,11 @@ for row in rows:
 #     desp_collect.append(desp.text)
 
 def index(request):
+    qs = News.objects.all()
     context = {
     #    'title_collect': title_collect,
     #    'desp_collect': desp_collect,
-       'rows': rows
+       'rows': rows,
+       'qs': qs
     }
     return render(request, "news.html", context)

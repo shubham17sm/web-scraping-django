@@ -29,7 +29,16 @@
     <div class="container">
         <div class="row">
 
-            {%for tit in rows%}
+            {%for item in qs%}
+            <div class="col-12 properties">
+                <h5> {{forloop.counter}}- {{item.title}} </h5>
+                <p>{{item.description}}</p>
+                <p><a href="{{item.link}}" target="_blank">CLICK TO VIEW THE ARTICLE</a></p>
+            </div>
+            {% endfor %}
+
+
+            <!-- {%for tit in rows%}
             <div class="col-12 properties">
                 <h5> {{forloop.counter}}- {{tit|index:0}} </h5>
                 <p><b>Description:</b>{{tit|index:1}}</p>
@@ -37,16 +46,8 @@
                 <p><b>guid:</b>{{tit|index:3}}</p>
                 <p><b>pubdate:</b>{{tit|index:4}}</p>
             </div>
-            {% endfor %}
+            {% endfor %} -->
 
-            <!-- <div class="col-6">
-                <h3 class="text-centre">News from Hindustan times</h3>
-                {% for htn in ht_news %}
-                <h5> - {{htn}} </h5>
-                <hr>
-                {% endfor %}
-                <br>
-            </div> -->
         </div>
 
 

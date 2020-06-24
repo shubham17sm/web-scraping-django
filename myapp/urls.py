@@ -5,7 +5,7 @@ from django.conf import settings
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='news')
+    path('', views.index, name='news'),
 ]
 
 if settings.DEBUG:
