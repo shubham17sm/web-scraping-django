@@ -44,8 +44,7 @@ def news_task():
         news_bool = False
         )
 
-
-    sleep(5)
+        sleep(5)
 
 
 news_task()

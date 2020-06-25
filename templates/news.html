@@ -28,11 +28,13 @@
             border-radius: .25rem;
             font-size: 20px;
         }
-        .btn-rounded{
+
+        .btn-rounded {
             color: black;
             border: 2px solid;
         }
-        .page-footer{
+
+        .page-footer {
             background-color: #e9ecef;
         }
     </style>
@@ -59,28 +61,28 @@
             {% endfor %}
 
             <div class="pagination-div">
-            {% if news.has_other_pages %}
-            <ul class="pagination ul-style">
-                {% if news.has_previous %}
-                <li class="li-style"><a href="?page={{ news.previous_page_number }}">&laquo;</a></li>
-                {% else %}
-                <li class="disabled li-style"><span>&laquo;</span></li>
+                {% if news.has_other_pages %}
+                <ul class="pagination ul-style">
+                    {% if news.has_previous %}
+                    <li class="li-style"><a href="?page={{ news.previous_page_number }}">&laquo;</a></li>
+                    {% else %}
+                    <li class="disabled li-style"><span>&laquo;</span></li>
+                    {% endif %}
+                    {% for i in news.paginator.page_range %}
+                    {% if news.number == i %}
+                    <li class="active li-style"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                    {% else %}
+                    <li class="li-style"><a href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                    {% if news.has_next %}
+                    <li class="li-style"><a href="?page={{ news.next_page_number }}">&raquo;</a></li>
+                    {% else %}
+                    <li class="disabled li-style"><span>&raquo;</span></li>
+                    {% endif %}
+                </ul>
                 {% endif %}
-                {% for i in news.paginator.page_range %}
-                {% if news.number == i %}
-                <li class="active li-style"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-                {% else %}
-                <li class="li-style"><a href="?page={{ i }}">{{ i }}</a></li>
-                {% endif %}
-                {% endfor %}
-                {% if news.has_next %}
-                <li class="li-style"><a href="?page={{ news.next_page_number }}">&raquo;</a></li>
-                {% else %}
-                <li class="disabled li-style"><span>&raquo;</span></li>
-                {% endif %}
-            </ul>
-            {% endif %}
-        </div>
+            </div>
             <!-- {%for tit in rows%}
             <div class="col-12 properties">
                 <h5> {{forloop.counter}}- {{tit|index:0}} </h5>
@@ -96,33 +98,33 @@
 
     </div>
     <!-- Footer -->
-<footer class="page-footer font-small unique-color-dark pt-4">
+    <footer class="page-footer font-small unique-color-dark pt-4">
 
-    <!-- Footer Elements -->
-    <div class="container">
-  
-      <!-- Call to action -->
-      <ul class="list-unstyled list-inline text-center py-2">
-        <li class="list-inline-item">
-          <h5 class="mb-1">Click here to get API</h5>
-        </li>
-        <li class="list-inline-item">
-          <a href="{% url 'news-api' %}" class="btn btn-outline-white btn-rounded" target="_blank">API</a>
-        </li>
-      </ul>
-      <!-- Call to action -->
-  
-    </div>
-    <!-- Footer Elements -->
-  
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© Times of India RSS Feeds:
-      <br><a href="#"> Made by Shubham Mahajan</a>
-    </div>
-    <!-- Copyright -->
-  
-  </footer>
-  <!-- Footer -->
+        <!-- Footer Elements -->
+        <div class="container">
+
+            <!-- Call to action -->
+            <ul class="list-unstyled list-inline text-center py-2">
+                <li class="list-inline-item">
+                    <h5 class="mb-1">Click here to get API</h5>
+                </li>
+                <li class="list-inline-item">
+                    <a href="{% url 'news-api' %}" class="btn btn-outline-white btn-rounded" target="_blank">API</a>
+                </li>
+            </ul>
+            <!-- Call to action -->
+
+        </div>
+        <!-- Footer Elements -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© Times of India RSS Feeds:
+            <br><a href="#"> Made by Shubham Mahajan</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
 
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
